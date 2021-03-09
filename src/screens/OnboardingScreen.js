@@ -2,7 +2,7 @@ import React from 'react';
 import { Image } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 
-const OnboardScreen = () => {
+const OnboardingScreen = () => {
   return (
     <>
       <Onboarding
@@ -20,4 +20,4 @@ const OnboardScreen = () => {
   );
 };
 
-export default OnboardScreen;
+export default OnboardingScreen;
