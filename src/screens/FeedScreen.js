@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-const EditorPicksScreen = () => {
+const FeedScreen = () => {
   return (
     <View>
-      <Text>EditorPicks</Text>
+      <Text>Feed</Text>
     </View>
   );
 };
 
-export default EditorPicksScreen;
+export default FeedScreen;
