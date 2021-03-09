@@ -1,11 +1,4 @@
-import ClothesScreen from './ClothesScreen';
-import CombineScreen from './CombineScreen';
-import FeedScreen from './FeedScreen';
-import WardrobeScreen from './WardrobeScreen';
-
-export default {
-  ClothesScreen,
-  CombineScreen,
-  FeedScreen,
-  WardrobeScreen,
-};
+export ClothesScreen from './ClothesScreen';
+export CombineScreen from './CombineScreen';
+export FeedScreen from './FeedScreen';
+export WardrobeScreen from './WardrobeScreen';
