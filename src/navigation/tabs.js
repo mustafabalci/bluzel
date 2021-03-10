@@ -1,13 +1,31 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Image, View, Text, StyleSheet } from 'react-native';
+import { Image, View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
 import icons from '../constants/icons';
+import LinearGradient from 'react-native-linear-gradient';
 import {
   WardrobeScreen,
   ClothesScreen,
   CombineScreen,
   FeedScreen,
 } from '../screens';
+
+const CustomTabButton = ({ children }) => {
+  return (
+    <TouchableOpacity
+      style={{
+        top: -20,
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}>
+      <LinearGradient
+        colors={['#5c3551', '#919191']}
+        style={{ width: 50, height: 50, borderRadius: 25 }}>
+        {children}
+      </LinearGradient>
+    </TouchableOpacity>
+  );
+};
 
 const Tabs = () => {
   const TabsNavigation = createBottomTabNavigator();
@@ -17,7 +35,6 @@ const Tabs = () => {
     labelStyle: {
       fontSize: 14,
     },
-    activeTintColor: '#00e676',
     style: {
       position: 'absolute',
       bottom: 0,
@@ -80,6 +97,24 @@ const Tabs = () => {
       initialRouteName="Wardrobe">
       <TabsNavigation.Screen name="Wardrobe" component={WardrobeScreen} />
       <TabsNavigation.Screen name="Clothes" component={ClothesScreen} />
+      <TabsNavigation.Screen
+        name="Add"
+        component={FeedScreen}
+        options={{
+          tabBarIcon: ({ focused }) => (
+            <Image
+              source={icons.plus_icon}
+              resizeMode="contain"
+              style={{
+                width: 20,
+                height: 20,
+                tintColor: '#FFFFFF',
+              }}
+            />
+          ),
+          tabBarButton: (props) => <CustomTabButton {...props} />,
+        }}
+      />
       <TabsNavigation.Screen name="Combine" component={CombineScreen} />
       <TabsNavigation.Screen name="Feed" component={FeedScreen} />
     </TabsNavigation.Navigator>
