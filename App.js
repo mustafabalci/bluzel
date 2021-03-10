@@ -5,7 +5,7 @@ import Tabs from './src/navigation/tabs';
 import OnboardingScreen from './src/screens/OnboardingScreen';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { ActivityIndicator } from 'react-native';
-import LoginSceen from './src/screens/LoginScreen';
+import LoginScreen from './src/screens/LoginScreen';
 
 const App = () => {
   const [isFirstLaunch, setIsFirstLaunch] = useState(null);
@@ -35,7 +35,7 @@ const App = () => {
       </NavigationContainer>
     );
   } else {
-    return <LoginSceen />;
+    return <LoginScreen />;
   }
 };
 
