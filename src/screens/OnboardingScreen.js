@@ -2,8 +2,6 @@ import React from 'react';
 import { Image, Dimensions } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 
-const width = Dimensions.get('window').width;
-
 const OnboardingScreen = ({ navigation }) => {
   return (
     <>
