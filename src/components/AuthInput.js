@@ -6,14 +6,14 @@ const AuthInput = ({ iconName, labelValue, placeholder, ...others }) => {
   return (
     <View style={styles.inputWrapper}>
       <View style={styles.icon}>
-        <Icon name={iconName} size={25} color="#DDDDDD" />
+        <Icon name={iconName} size={25} color="#666" />
       </View>
       <TextInput
         style={styles.input}
         value={labelValue}
         placeholder={placeholder}
         numberOfLines={1}
-        placeholderTextColor="#DDDDDD"
+        placeholderTextColor="#666"
         {...others}
       />
     </View>
