@@ -1,6 +1,7 @@
-import React, { createContext, useState } from 'react';
+import React, { createContext, useState, useContext } from 'react';
 import auth from '@react-native-firebase/auth';
 import firestore from '@react-native-firebase/firestore';
+import { LoaderContext } from '../contexts/LoaderProvider';
 // import { GoogleSignin } from '@react-native-community/google-signin';
 // import { LoginManager, AccessToken } from 'react-native-fbsdk';
 
@@ -8,6 +9,7 @@ export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const { showLoader, hideLoader } = useContext(LoaderContext);
 
   return (
     <AuthContext.Provider
@@ -15,17 +17,22 @@ export const AuthProvider = ({ children }) => {
         user,
         setUser,
         login: async (email, password) => {
+          showLoader();
           try {
             await auth().signInWithEmailAndPassword(email, password);
+            hideLoader();
           } catch (e) {
             console.log(e);
+            hideLoader();
           }
         },
         register: async (email, password) => {
+          showLoader();
           try {
             await auth()
               .createUserWithEmailAndPassword(email, password)
               .then(() => {
+                hideLoader();
                 firestore()
                   .collection('users')
                   .doc(auth().currentUser.uid)
@@ -37,6 +44,7 @@ export const AuthProvider = ({ children }) => {
                     userImg: null,
                   })
                   .catch((error) => {
+                    hideLoader();
                     console.log(
                       'Something went wrong with added user to firestore: ',
                       error,

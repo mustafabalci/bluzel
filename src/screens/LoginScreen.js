@@ -10,13 +10,13 @@ import {
 import AuthInput from '../components/AuthInput';
 import AuthFormButton from '../components/AuthFormButton';
 import SocialButton from '../components/SocialButton';
-// import {AuthContext} from '../navigation/AuthProvider';
+import { AuthContext } from '../navigation/AuthProvider';
 
 const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  // const { login, googleLogin, fbLogin } = useContext(AuthContext);
+  const { login } = useContext(AuthContext);
 
   return (
     <ScrollView contentContainerStyle={styles.container}>
@@ -43,7 +43,7 @@ const LoginScreen = ({ navigation }) => {
         secureTextEntry={true}
       />
 
-      <AuthFormButton text="Giriş Yap" onPress={() => alert('clicked')} />
+      <AuthFormButton text="Giriş Yap" onPress={() => login(email, password)} />
 
       <TouchableOpacity style={styles.forgotButton} onPress={() => {}}>
         <Text style={styles.navButtonText}>Parolamı Unuttum</Text>

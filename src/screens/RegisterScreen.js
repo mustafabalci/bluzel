@@ -15,7 +15,6 @@ const SignupScreen = ({ navigation }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
   const [confirmPassword, setConfirmPassword] = useState();
-  const [buttonLoader, setButtonLoader] = useState(false);
 
   const { register } = useContext(AuthContext);
 
